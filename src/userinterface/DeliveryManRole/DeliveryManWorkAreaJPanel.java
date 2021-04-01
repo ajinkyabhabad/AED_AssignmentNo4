@@ -42,7 +42,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblDeliveryManWorkRequest.getModel();
         model.setRowCount(0);
         workRequestList = ecosystem.getWorkQueue().getWorkRequestListDeliveryMan(userAccount);
-          System.out.println("workrequest"+workRequestList);
+          //System.out.println("workrequest"+workRequestList);
         for (WorkRequest request : workRequestList) {
             Object[] row = new Object[tblDeliveryManWorkRequest.getColumnCount()];
             row[0] = request;

@@ -54,13 +54,13 @@ public class WorkQueue {
     public List<WorkRequest> getWorkRequestListDeliveryMan(UserAccount account){
         List<WorkRequest> workRequestListDelivery = new ArrayList();
         for(WorkRequest workRequest : workRequestList){
-           System.out.print("workRequestList"+workRequestList.size());
+           //System.out.print("workRequestList"+workRequestList.size());
             if(workRequest.getDeliverMan()!= null){
-                System.out.print("after assigning work request==>"+workRequest.getDeliverMan());
+                //System.out.print("after assigning work request==>"+workRequest.getDeliverMan());
                 DeliveryMan deliveryManAccount = workRequest.getDeliverMan();
-                System.out.println("qorkqueue"+deliveryManAccount.getUsername()+"name:"+
+                /*System.out.println("qorkqueue"+deliveryManAccount.getUsername()+"name:"+
                         deliveryManAccount.getDeliveryManName()+"status:"+workRequest.getStatus());
-                 System.out.print("user account "+account.getUsername());
+                 System.out.print("user account "+account.getUsername());*/
                  workRequestListDelivery.add(workRequest);
                /* if(deliveryManAccount.getUsername().equals(account.getUsername())){
                     workRequestListDelivery.add(workRequest);

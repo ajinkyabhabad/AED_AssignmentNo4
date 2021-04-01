@@ -121,7 +121,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
                         if (quantity != 0) {
                             ItemQuantity itemWithQuantity = new ItemQuantity(item, quantity);
                             itemsWithQuantityList.add(itemWithQuantity);
-                            System.out.println("QUANTITY : " + quantity);
+                            //System.out.println("QUANTITY : " + quantity);
                             populateItemsWithQuantityTable();
                         }
 
@@ -157,14 +157,14 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
             if (customer != null) {
                 orderWorkRequest.setCustomer(customer);
             } else {
-                System.out.println("Customer is null");
+                //System.out.println("Customer is null");
                 return false;
             }
             Restaurant restaurant = resturantDirectory.getRestaurantDirectory().get(index);
             if (restaurant != null) {
                 orderWorkRequest.setRestaurant(restaurant);
             } else {
-                System.out.println("Restaurant is null");
+                //System.out.println("Restaurant is null");
                 return false;
             }
             orderWorkRequest.setRequestDate(new Date());

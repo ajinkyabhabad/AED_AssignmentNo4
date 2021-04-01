@@ -20,7 +20,7 @@ import userinterface.CustomerRole.OrderDetailsJPanel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
 

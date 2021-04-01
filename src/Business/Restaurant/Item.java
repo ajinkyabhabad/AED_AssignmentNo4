@@ -7,7 +7,7 @@ package Business.Restaurant;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class Item {
     private String name;

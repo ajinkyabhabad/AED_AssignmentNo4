@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class Menu {
     ArrayList<Item> itemList = new ArrayList<Item>();

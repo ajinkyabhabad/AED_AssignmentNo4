@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class OrderRequestDetailsJPanel extends javax.swing.JPanel {
 
@@ -43,7 +43,7 @@ public class OrderRequestDetailsJPanel extends javax.swing.JPanel {
         this.workRequest = workRequest;
         orderTable = (DefaultTableModel) tblOrderDetails.getModel();
         deliveryManDirectory = ecosystem.getDeliveryManDirectory();
-        System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.<init>()"+deliveryManDirectory.getDeliveryManList());
+        //System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.<init>()"+deliveryManDirectory.getDeliveryManList());
         
         populateDeliveryManList(deliveryManDirectory.getDeliveryManList());
         changeButtonText();
@@ -81,17 +81,17 @@ public class OrderRequestDetailsJPanel extends javax.swing.JPanel {
             deliveryManNameValue.setVisible(false);
             jButtonAddDeliveryMan.setVisible(true);
             deliveryManLabel.setVisible(false);
-            System.out.println("populateDeliveryManUI()"+1);
+            //System.out.println("populateDeliveryManUI()"+1);
         }else{
             jButtonAddDeliveryMan.setVisible(false);
             assignDeliveryPersonLabel.setVisible(false);
             assignDeliveryPerson.setVisible(false);
             deliveryManNameValue.setVisible(true);
             deliveryManLabel.setVisible(true);
-             System.out.println("populateDeliveryManUI()"+2);
+             //System.out.println("populateDeliveryManUI()"+2);
             if(workRequest.getDeliverMan() != null){
-                System.out.println("workRequest"+workRequest.getStatus());
-                System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.populateDeliveryManUI()"+workRequest.getDeliverMan().getDeliveryManName());
+                //System.out.println("workRequest"+workRequest.getStatus());
+                //System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.populateDeliveryManUI()"+workRequest.getDeliverMan().getDeliveryManName());
                 deliveryManNameValue.setText(workRequest.getDeliverMan().getDeliveryManName());
             }else{
               deliveryManNameValue.setText("Not Assigned");  
@@ -103,7 +103,7 @@ public class OrderRequestDetailsJPanel extends javax.swing.JPanel {
         if(workRequest.getDeliverMan() == null) {
             assignDeliveryPerson.setVisible(true);
              for (DeliveryMan deliveryMan : deliveryManList) {
-                 System.out.println("deliveryman"+deliveryMan);
+                 //System.out.println("deliveryman"+deliveryMan);
                 assignDeliveryPerson.addItem(deliveryMan.getDeliveryManName());
               }
         }else{
@@ -412,10 +412,10 @@ public class OrderRequestDetailsJPanel extends javax.swing.JPanel {
         if(index >= 0){
             
             DeliveryMan deliveryMan = deliveryManDirectory.getDeliveryManList().get(assignDeliveryPerson.getSelectedIndex());
-            System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.addDeliveryPersonActionPerformed()"+deliveryMan);
-            System.out.println("workrequest delivery man adding details==>"+deliveryMan);
+            //System.out.println("userinterface.RestaurantAdminRole.ManageOrderDetailsJPanel.addDeliveryPersonActionPerformed()"+deliveryMan);
+            //System.out.println("workrequest delivery man adding details==>"+deliveryMan);
             workRequest.setDeliverMan(deliveryMan);
-            System.out.println("workrequest" + workRequest.getStatus());
+            //System.out.println("workrequest" + workRequest.getStatus());
             JOptionPane.showMessageDialog(null,deliveryMan+ " Delivery person assigned successfully!!!");
             populateDeliveryManUI();
         }

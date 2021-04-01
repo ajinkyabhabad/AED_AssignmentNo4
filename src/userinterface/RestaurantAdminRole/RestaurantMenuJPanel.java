@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class RestaurantMenuJPanel extends javax.swing.JPanel {
 

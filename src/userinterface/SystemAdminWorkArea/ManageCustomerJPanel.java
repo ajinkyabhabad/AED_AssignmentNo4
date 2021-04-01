@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class ManageCustomerJPanel extends javax.swing.JPanel {
 
@@ -201,9 +201,9 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
            
         int selectedRow = tblCustomer.getSelectedRow();
         if (selectedRow >= 0) {
-            System.out.println("selected row" + selectedRow);
+            //System.out.println("selected row" + selectedRow);
             Customer customer = (Customer) tblCustomer.getValueAt(selectedRow, 0);
-            System.out.println("item : " + customer);
+            //System.out.println("item : " + customer);
             customer.setUsername(userNameTextfield.getText());
             customer.setPassword(passwordTextfield.getText());
             customer.setName(customerNameTextfield.getText());

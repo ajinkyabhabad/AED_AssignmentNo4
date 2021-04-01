@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
@@ -307,8 +307,8 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_backjButton1ActionPerformed
     private void populateTable() {
-        System.out.println("customer"+ecosystem.getCustomerDirectory().getCustomerList());
-        System.out.println("delivery"+ecosystem.getUserAccountDirectory().getUserAccountList());
+        //System.out.println("customer"+ecosystem.getCustomerDirectory().getCustomerList());
+        //System.out.println("delivery"+ecosystem.getUserAccountDirectory().getUserAccountList());
         DeliveryManDirectory deliveryManDirectory = ecosystem.getDeliveryManDirectory();
         DefaultTableModel model = (DefaultTableModel) tblDeliveryMan.getModel();
        

@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class LabTestWorkRequest extends WorkRequest{
     

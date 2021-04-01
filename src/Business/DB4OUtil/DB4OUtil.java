@@ -48,7 +48,7 @@ public class DB4OUtil {
             ObjectContainer db = Db4oEmbedded.openFile(config, FILENAME);
             return db;
         } catch (Exception ex) {
-            System.out.print(ex.getMessage());
+            //System.out.print(ex.getMessage());
         }
         return null;
     }

@@ -42,7 +42,7 @@ public class UserAccountDirectory {
         return userAccount;
     }
     public UserAccount addUserAccount(UserAccount userAccount){
-        System.out.println("Business.UserAccount.UserAccountDirectory.addUserAccount()"+userAccount);
+        //System.out.println("Business.UserAccount.UserAccountDirectory.addUserAccount()"+userAccount);
         userAccountList.add(userAccount);
         return userAccount;
     }

@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vishakha
+ * @author Ajinkya
  */
 public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
@@ -251,7 +251,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         int selectedRow = tblRestaurantAdmin.getSelectedRow();
         if (selectedRow >= 0) {
             Restaurant restaurant = (Restaurant) tblRestaurantAdmin.getValueAt(selectedRow, 0);
-            System.out.println("item : " + restaurant);
+            //System.out.println("item : " + restaurant);
             restaurant.setUsername(userNameTextfield.getText());
             restaurant.setPassword(passwordTextfield.getText());
             restaurant.setRestaurantName(restaurantNameTextfield.getText());
