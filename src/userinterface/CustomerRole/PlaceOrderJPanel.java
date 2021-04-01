@@ -333,10 +333,10 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         if (createOrder()) {
             JOptionPane.showMessageDialog(null, "Ordered Placed Successfully");
-            CustomerAreaJPanel orderStatusJPanel = new CustomerAreaJPanel(userProcessContainer, ecosystem, customer);
+            /*CustomerAreaJPanel orderStatusJPanel = new CustomerAreaJPanel(userProcessContainer, ecosystem, customer);
             userProcessContainer.add("OrderStatusJPanel", orderStatusJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            layout.next(userProcessContainer);*/
         }
 
 

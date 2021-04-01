@@ -172,7 +172,7 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         
           if( userNameTextfield.getText().isEmpty()||passwordTextfield.getText().isEmpty()|| customerNameTextfield.getText().isEmpty() || addressTextfield.getText().isEmpty() || phoneTextfield.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Please enter the field details");
+            JOptionPane.showMessageDialog(null, "please enter all mandatory fields");
             return;
         }
         // if username is unique add the customer to customer Directory

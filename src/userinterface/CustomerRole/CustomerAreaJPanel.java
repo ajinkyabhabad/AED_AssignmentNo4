@@ -11,6 +11,7 @@ import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -32,7 +33,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     public CustomerAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem, UserAccount account) {
         initComponents();
-        initListners();
+        //initListners();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.account = account;
@@ -56,7 +57,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     }
 
-    private void initListners() {
+    /*private void initListners() {
         tblCustomerOrderStatus.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 int selectedRow = tblCustomerOrderStatus.getSelectedRow();
@@ -75,7 +76,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 }
             }
         });
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,6 +90,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomerOrderStatus = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -123,10 +125,40 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblCustomerOrderStatus);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 790, 350));
+
+        jButton1.setText("Order Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+                int selectedRow = tblCustomerOrderStatus.getSelectedRow();
+                if (selectedRow >= 0) {
+                    WorkRequest request = (WorkRequest) tblCustomerOrderStatus.getValueAt(selectedRow, 0);
+                    if (request instanceof LabTestWorkRequest) {
+                        LabTestWorkRequest orderWorkRequest = (LabTestWorkRequest) tblCustomerOrderStatus.getValueAt(selectedRow, 0);
+                        if (orderWorkRequest != null) {
+                           OrderDetailsJPanel orderDetailsJPanel = new OrderDetailsJPanel(userProcessContainer,ecosystem,account,orderWorkRequest);
+                           userProcessContainer.add("OrderDetailsJPanel", orderDetailsJPanel);
+                           CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+                           layout.next(userProcessContainer);
+                        }
+                    }
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a row.");
+                }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblCustomerOrderStatus;
