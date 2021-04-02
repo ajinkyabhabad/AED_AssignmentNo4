@@ -12,6 +12,7 @@ import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -34,7 +35,7 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
     UserAccount account;
     public RestaurantOrderDetailsJPanel(JPanel userProcessContainer,EcoSystem ecosystem, UserAccount account) {
         initComponents();
-        initListners();
+        //initListners();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.account = account;
@@ -65,6 +66,7 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurantWorkRequest = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,6 +97,13 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblRestaurantWorkRequest);
 
+        jButton1.setText("Order Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,6 +117,10 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
                         .addGap(81, 81, 81)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(402, 402, 402))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +129,31 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblRestaurantWorkRequest.getSelectedRow();
+                if (selectedRow >= 0) {
+                    WorkRequest request = (WorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
+                    if (request instanceof LabTestWorkRequest) {
+                        LabTestWorkRequest orderWorkRequest = (LabTestWorkRequest) tblRestaurantWorkRequest.getValueAt(selectedRow, 0);
+                        if (orderWorkRequest != null) {
+                           OrderRequestDetailsJPanel manageOrderDetailsJPanel = new OrderRequestDetailsJPanel(userProcessContainer,ecosystem,account,orderWorkRequest);
+                           userProcessContainer.add("ManageOrderDetailsJPanel", manageOrderDetailsJPanel);
+                           CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+                           layout.next(userProcessContainer);
+                        }
+                    }
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a row.");
+                }
+    }//GEN-LAST:event_jButton1ActionPerformed
         private void initListners() {
         tblRestaurantWorkRequest.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -141,6 +176,7 @@ public class RestaurantOrderDetailsJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRestaurantWorkRequest;

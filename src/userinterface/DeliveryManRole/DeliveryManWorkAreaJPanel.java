@@ -11,6 +11,7 @@ import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -31,7 +32,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     
     public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem) {
         initComponents();
-        initListners();
+        //initListners();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
@@ -86,6 +87,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDeliveryManWorkRequest = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -129,9 +131,39 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ORDER TO DELIVER");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 790, -1));
+
+        jButton1.setText("Order Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblDeliveryManWorkRequest.getSelectedRow();
+                if (selectedRow >= 0) {
+                    WorkRequest request = (WorkRequest) tblDeliveryManWorkRequest.getValueAt(selectedRow, 0);
+                    if (request instanceof LabTestWorkRequest) {
+                        LabTestWorkRequest orderWorkRequest = (LabTestWorkRequest) tblDeliveryManWorkRequest.getValueAt(selectedRow, 0);
+                        if (orderWorkRequest != null) {
+                           ProcessWorkRequestJPanel processOrderJPanel = new ProcessWorkRequestJPanel(userProcessContainer,ecosystem,userAccount,orderWorkRequest);
+                           userProcessContainer.add("ProcessOrderJPanel", processOrderJPanel);
+                           CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+                           layout.next(userProcessContainer);
+                        }
+                    }
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a row.");
+                }
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDeliveryManWorkRequest;
